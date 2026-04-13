@@ -12,6 +12,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "myRG-terraform"
+  name     = "RG-terraform"
   location = "eastus"
 }

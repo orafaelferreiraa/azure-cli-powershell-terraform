@@ -19,7 +19,7 @@ Comparativo prático de criação de recursos no Azure usando três abordagens: 
 |---|---|---|
 | [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) | `winget install Microsoft.AzureCLI` | `az --version` |
 | [Azure PowerShell](https://learn.microsoft.com/powershell/azure/install-az-ps) | `Install-Module -Name Az -Scope CurrentUser` | `Get-Module Az -ListAvailable` |
-| [Terraform](https://developer.hashicorp.com/terraform/downloads) | `winget install Hashicorp.Terraform` | `terraform --version` |
+| [Terraform](https://developer.hashicorp.com/terraform/downloads) | `add path env variables` | `terraform --version` |
 | Conta Azure | [Criar conta gratuita](https://azure.microsoft.com/free/) | — |
 
 ---
@@ -71,7 +71,7 @@ az login
 cd 01-resource-group
 bash cli-commands.sh
 # Ou execute os comandos individualmente:
-az group create --name myRG-cli --location eastus
+az group create --name RG-cli --location eastus
 ```
 
 ### Azure PowerShell
@@ -79,7 +79,7 @@ az group create --name myRG-cli --location eastus
 ```powershell
 cd 01-resource-group
 # Execute os comandos do arquivo:
-New-AzResourceGroup -Name myRG-powershell -Location eastus
+New-AzResourceGroup -Name RG-powershell -Location eastus
 ```
 
 ### Terraform
@@ -109,12 +109,12 @@ terraform destroy   # Remove tudo que foi criado (confirme com "yes")
 cd 02-storage-account
 
 # 1. Certifique-se que o RG existe
-az group create --name myRG-cli --location eastus
+az group create --name RG-cli --location eastus
 
 # 2. Crie o Storage Account
 az storage account create \
   --name mystorageacctcli2026 \
-  --resource-group myRG-cli \
+  --resource-group RG-cli \
   --location eastus \
   --sku Standard_LRS \
   --kind StorageV2
@@ -126,11 +126,11 @@ az storage account create \
 cd 02-storage-account
 
 # 1. Certifique-se que o RG existe
-New-AzResourceGroup -Name myRG-powershell -Location eastus
+New-AzResourceGroup -Name RG-powershell -Location eastus
 
 # 2. Crie o Storage Account
 New-AzStorageAccount `
-  -ResourceGroupName myRG-powershell `
+  -ResourceGroupName RG-powershell `
   -Name mystorageacctps2026 `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -172,12 +172,12 @@ Para não gerar custos, remova os recursos após os testes:
 
 ```bash
 # CLI
-az group delete --name myRG-cli --yes --no-wait
+az group delete --name RG-cli --yes --no-wait
 ```
 
 ```powershell
 # PowerShell
-Remove-AzResourceGroup -Name myRG-powershell -Force
+Remove-AzResourceGroup -Name RG-powershell -Force
 ```
 
 ```bash
