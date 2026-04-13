@@ -2,15 +2,6 @@
 
 Comparativo prático de criação de recursos no Azure usando três abordagens: **Azure CLI**, **Azure PowerShell** e **Terraform**.
 
-## Sugestões de nome para o repositório
-
-| Opção | Estilo |
-|---|---|
-| `azure-provisioning-3-ways` | Descritivo |
-| `azure-cli-powershell-terraform` | Direto |
-| `azure-iac-comparison` | Técnico |
-| `learn-azure-provisioning` | Educacional |
-
 ---
 
 ## Pré-requisitos
